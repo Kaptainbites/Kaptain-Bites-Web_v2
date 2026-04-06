@@ -552,7 +552,8 @@ body.mobile-sheet-open { overflow: hidden; }
     transform: translateY(calc(100% + 24px));
     transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
     z-index: 2000;
-    max-height: min(82svh,620px);
+    height: 82svh;
+    max-height: 82svh;
     overflow: hidden;
   }
   .mobile-menu-sheet.active,
@@ -694,11 +695,11 @@ body.mobile-sheet-open { overflow: hidden; }
   .quantity-control--catalog .qty-value { font-size: 0.9rem; }
   .product-card__quick { min-height: 40px; font-size: 0.82rem; padding: 8px 10px; border-radius: 12px; }
 
-  /* ── Features: compact flat rows (icon left, text right) ── */
-  .features-grid { grid-template-columns: 1fr; gap: 10px; }
-  .feature-card { display: flex; align-items: center; gap: 16px; padding: 16px 18px; border-radius: 16px; text-align: left; }
-  .feature-icon { width: 48px; height: 48px; font-size: 1.4rem; border-radius: 14px; flex-shrink: 0; margin-bottom: 0; }
-  .feature-card h3 { font-size: 0.95rem; margin-bottom: 2px; line-height: 1.3; }
+  /* ── Features: 2×2 premium tile grid ── */
+  .features-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .feature-card { display: flex; flex-direction: column; align-items: flex-start; padding: 20px 16px 18px; border-radius: 20px; text-align: left; gap: 0; }
+  .feature-icon { width: 46px; height: 46px; font-size: 1.4rem; border-radius: 13px; flex-shrink: 0; margin: 0 0 12px 0; }
+  .feature-card h3 { font-size: 0.88rem; font-weight: 700; margin-bottom: 0; line-height: 1.3; color: var(--white); }
   .feature-card p { display: none; }
 
   /* Values / About */
@@ -825,21 +826,12 @@ body.mobile-sheet-open { overflow: hidden; }
   .products-grid { padding: 4px 14px 16px; margin: 0 -14px; gap: 12px; }
   .product-card { flex: 0 0 80vw; max-width: 290px; }
 
-  /* Features: still flat rows */
-  .features-grid { grid-template-columns: 1fr; }
-  .feature-card { padding: 14px 16px; }
-
   .about-story-text h2, .business-service__content h2 { font-size: 1.8rem; }
   .business-service__card { flex: 0 0 80%; max-width: 260px; }
 
   .related-products__grid { grid-template-columns: 1fr; }
   .product-detail__content h1 { font-size: 1.75rem; }
   .product-detail__price strong { font-size: 1.6rem; }
-
-  .footer-grid { grid-template-columns: 1fr; }
-  .footer-grid > div:nth-child(4) { grid-column: auto; }
-  .footer-grid > div:nth-child(4) ul { display: grid; gap: 0; }
-  .footer-grid > div:nth-child(4) ul li { margin-bottom: 8px; }
 }
 
 /* --- Very Small ≤ 380px ------------------------------- */

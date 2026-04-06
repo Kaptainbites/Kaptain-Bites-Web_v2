@@ -324,11 +324,109 @@ function setupMobileNavigation() {
     }
   });
 
+  // ── Swipe-down-to-close for both sheets ──
+  function setupSheetDrag(sheet, closeFn) {
+    const handle = sheet.querySelector("[class$='__handle']");
+    if (!handle) { return; }
+    let startY = 0;
+    let lastY = 0;
+    let dragging = false;
+
+    handle.addEventListener("touchstart", (e) => {
+      startY = e.touches[0].clientY;
+      lastY = startY;
+      dragging = true;
+      sheet.style.transition = "none";
+    }, { passive: true });
+
+    handle.addEventListener("touchmove", (e) => {
+      if (!dragging) { return; }
+      lastY = e.touches[0].clientY;
+      const dy = lastY - startY;
+      if (dy > 0) { sheet.style.transform = `translateY(${dy}px)`; }
+    }, { passive: true });
+
+    handle.addEventListener("touchend", () => {
+      if (!dragging) { return; }
+      dragging = false;
+      sheet.style.transition = "";
+      const dy = lastY - startY;
+      sheet.style.transform = "";
+      if (dy > 80) { closeFn(); }
+    });
+  }
+
+  setupSheetDrag(menuSheet, closeNav);
+  setupSheetDrag(searchSheet, () => closeSearch({ focusTrigger: true }));
+
   window.KAPTAINBITES_MOBILE_NAV = {
     openSearch,
     closeSearch,
     closeAll
   };
+}
+
+function setupMobileSearch() {
+  const searchInput = document.getElementById("mobile-search-input");
+  const clearBtn = document.getElementById("mobile-search-clear");
+  const submitBtn = document.getElementById("mobile-search-submit");
+  const submitLabel = document.getElementById("mobile-search-submit-label");
+  const resultsEl = document.getElementById("mobile-search-results");
+  const linksEl = document.getElementById("mobile-search-links");
+  const form = document.getElementById("mobile-search-form");
+
+  if (!searchInput || !resultsEl) {
+    return;
+  }
+
+  function renderMobileResults(rawQuery) {
+    const q = rawQuery.trim().toLowerCase();
+    const hasQuery = q.length > 0;
+
+    if (clearBtn) { clearBtn.hidden = !hasQuery; }
+    if (submitBtn && submitLabel) {
+      submitBtn.hidden = !hasQuery;
+      submitLabel.textContent = rawQuery.trim();
+    }
+    if (linksEl) { linksEl.style.display = hasQuery ? "none" : ""; }
+
+    if (!hasQuery) {
+      resultsEl.innerHTML = "";
+      return;
+    }
+
+    const matches = getFilteredProducts(q).slice(0, 6);
+    resultsEl.innerHTML = matches.length
+      ? matches.map((p) => `
+          <a href="${p.pageUrl}" class="search-sheet-result">
+            <img src="${getProductThumbnail(p)}" width="44" height="44" alt="${p.alt}" loading="lazy">
+            <span class="search-sheet-result__copy">
+              <span class="search-sheet-result__name">${p.name}</span>
+              <span class="search-sheet-result__meta">${p.weight} | Rs.${p.price}</span>
+            </span>
+          </a>`).join("")
+      : `<p class="search-sheet-empty">No results for "${rawQuery.trim()}"</p>`;
+  }
+
+  searchInput.addEventListener("input", () => renderMobileResults(searchInput.value));
+
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      renderMobileResults("");
+      searchInput.focus();
+    });
+  }
+
+  if (form) {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const q = searchInput.value.trim();
+      if (q) {
+        window.location.href = `${PRODUCTS_PAGE_URL}?q=${encodeURIComponent(q)}`;
+      }
+    });
+  }
 }
 
 function buildProductCard(product) {
@@ -782,6 +880,7 @@ function initFadeAnimations() {
 
 document.addEventListener("DOMContentLoaded", () => {
   setupMobileNavigation();
+  setupMobileSearch();
   renderFeaturedProducts();
   renderShopCatalog(new URLSearchParams(window.location.search).get("q") || "");
   setupSearch();
