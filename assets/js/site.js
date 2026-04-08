@@ -180,6 +180,18 @@ function setupMobileNavigation() {
                 <path d="M9.5 10.1C9.8 9.5 10.1 9.4 10.4 9.4C10.7 9.4 11 9.4 11.2 10L11.7 11.2C11.9 11.7 11.8 11.9 11.6 12.1L11.2 12.5C11.7 13.6 12.4 14.3 13.5 14.8L13.9 14.4C14.1 14.2 14.3 14.1 14.8 14.3L16 14.8C16.6 15 16.6 15.3 16.6 15.6C16.6 15.9 16.5 16.2 15.9 16.5C15.4 16.8 14.8 16.9 14.4 16.8C12.9 16.5 11.3 15.5 10 14.2C8.7 12.9 7.7 11.3 7.4 9.8C7.3 9.4 7.4 8.8 7.7 8.3C8 7.7 8.3 7.6 8.6 7.6C8.9 7.6 9.2 7.9 9.5 10.1Z"></path>
               </svg>
             </a>
+            <a href="https://www.instagram.com/kaptainbites?igsh=YTVxZXJzZDhxNjd4" target="_blank" rel="noopener" aria-label="KaptainBites on Instagram">
+              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"></circle>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61585786905935" target="_blank" rel="noopener" aria-label="KaptainBites on Facebook">
+              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
@@ -842,7 +854,8 @@ function setupContactForm() {
     emailBody += `\nSubject: ${subjectLabel}`;
     emailBody += `\n\nMessage:\n${formData.get("message")}`;
 
-    window.location.href = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(SUPPORT_EMAIL)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    window.open(gmailUrl, "_blank", "noopener,noreferrer");
     contactForm.reset();
   });
 }
