@@ -1,5 +1,5 @@
 ﻿const CART_PAGE_CONFIG = window.KAPTAINBITES_CONFIG || {};
-const CART_PAGE_WHATSAPP = CART_PAGE_CONFIG.whatsappNumber || "917760172150";
+const CART_PAGE_WHATSAPP = CART_PAGE_CONFIG.whatsappNumber || "919535484761";
 const CART_PAGE_PATHS = window.KAPTAINBITES_PATHS || {};
 const CART_PAGE_SHOP_URL = CART_PAGE_PATHS.shopUrl || "shop.html";
 

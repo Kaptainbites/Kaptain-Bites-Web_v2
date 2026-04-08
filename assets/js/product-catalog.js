@@ -1,5 +1,5 @@
 ﻿window.KAPTAINBITES_CONFIG = {
-  whatsappNumber: "917760172150",
+  whatsappNumber: "919535484761",
   phoneDisplay: "+91 77601 72150",
   email: "kaptainbites@gmail.com"
 };

@@ -2,7 +2,7 @@
 const PRODUCT_CATALOG = Array.isArray(window.KAPTAINBITES_PRODUCTS) ? window.KAPTAINBITES_PRODUCTS : [];
 const SITE_PATHS = window.KAPTAINBITES_PATHS || {};
 const PRODUCTS_PAGE_URL = SITE_PATHS.shopUrl || "shop.html";
-const WHATSAPP_NUMBER = SITE_CONFIG.whatsappNumber || "917760172150";
+const WHATSAPP_NUMBER = SITE_CONFIG.whatsappNumber || "919535484761";
 const SUPPORT_EMAIL = SITE_CONFIG.email || "kaptainbites@gmail.com";
 const cartApi = window.KAPTAINBITES_CART || null;
 const productQuantities = new Map();
@@ -826,26 +826,24 @@ function setupContactForm() {
     const subjectValue = formData.get("subject");
     const subjectOption = contactForm.querySelector(`[name="subject"] option[value="${subjectValue}"]`);
 
-    let waMsg = "Hi, I want to contact KaptainBites.\n\n";
-    waMsg += `Name: ${formData.get("name")}\n`;
+    const subjectLabel = subjectOption ? subjectOption.textContent.trim() : (subjectValue || "General Enquiry");
+    const emailSubject = `KaptainBites Enquiry: ${subjectLabel}`;
+
+    let emailBody = `Hi KaptainBites,\n\nName: ${formData.get("name")}`;
 
     if (formData.get("email")) {
-      waMsg += `Email: ${formData.get("email")}\n`;
+      emailBody += `\nEmail: ${formData.get("email")}`;
     }
 
     if (formData.get("phone")) {
-      waMsg += `Phone: ${formData.get("phone")}\n`;
+      emailBody += `\nPhone: ${formData.get("phone")}`;
     }
 
-    if (subjectOption && subjectOption.textContent) {
-      waMsg += `Subject: ${subjectOption.textContent}\n`;
-    }
+    emailBody += `\nSubject: ${subjectLabel}`;
+    emailBody += `\n\nMessage:\n${formData.get("message")}`;
 
-    waMsg += `\nMessage:\n${formData.get("message")}`;
-
-    openWhatsApp(waMsg);
+    window.location.href = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     contactForm.reset();
-    window.alert(`Thanks! We opened WhatsApp with your message. You can also email us at ${SUPPORT_EMAIL}.`);
   });
 }
 

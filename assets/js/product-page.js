@@ -1,5 +1,5 @@
 ﻿const PRODUCT_PAGE_CONFIG = window.KAPTAINBITES_CONFIG || {};
-const PRODUCT_PAGE_WHATSAPP = PRODUCT_PAGE_CONFIG.whatsappNumber || "917760172150";
+const PRODUCT_PAGE_WHATSAPP = PRODUCT_PAGE_CONFIG.whatsappNumber || "919535484761";
 const PRODUCT_PAGE_EMAIL = PRODUCT_PAGE_CONFIG.email || "kaptainbites@gmail.com";
 const productCartApi = window.KAPTAINBITES_CART || null;
 const PRODUCT_PATHS = window.KAPTAINBITES_PATHS || {};

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs sed:*)",
+      "Bash(python3 -)",
+      "Bash(python -)",
+      "Bash(where node:*)",
+      "Bash(perl -0777 -i -pe ':*)",
+      "Bash(perl -0777 -i -pe 's|\\(10\\\\.1Z\">\\\\</path>\\)\\\\n          \\\\</a>\\\\n          \\\\<a href=\"https://www\\\\.instagram\\\\.com/|$1\\\\n            \\\\<\\\\/svg>\\\\n          \\\\<\\\\/a>\\\\n          \\\\<a href=\"https:\\\\/\\\\/www.instagram.com\\\\/|g' *.html products/*.html)"
+    ]
+  }
+}
