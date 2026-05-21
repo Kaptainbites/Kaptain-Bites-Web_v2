@@ -6,7 +6,9 @@
       "Bash(python -)",
       "Bash(where node:*)",
       "Bash(perl -0777 -i -pe ':*)",
-      "Bash(perl -0777 -i -pe 's|\\(10\\\\.1Z\">\\\\</path>\\)\\\\n          \\\\</a>\\\\n          \\\\<a href=\"https://www\\\\.instagram\\\\.com/|$1\\\\n            \\\\<\\\\/svg>\\\\n          \\\\<\\\\/a>\\\\n          \\\\<a href=\"https:\\\\/\\\\/www.instagram.com\\\\/|g' *.html products/*.html)"
+      "Bash(perl -0777 -i -pe 's|\\(10\\\\.1Z\">\\\\</path>\\)\\\\n          \\\\</a>\\\\n          \\\\<a href=\"https://www\\\\.instagram\\\\.com/|$1\\\\n            \\\\<\\\\/svg>\\\\n          \\\\<\\\\/a>\\\\n          \\\\<a href=\"https:\\\\/\\\\/www.instagram.com\\\\/|g' *.html products/*.html)",
+      "PowerShell(ffmpeg -version 2>&1)",
+      "PowerShell(Get-ChildItem \"D:\\\\Others\\\\Kaptain Bites\\\\website\\\\Final Showdown\\\\Kaptain-Bites-Web_v2\\\\assets\\\\images\\\\hero\" | Select-Object Name, @{N='Size \\(MB\\)';E={[math]::Round\\($_.Length/1MB,2\\)}})"
     ]
   }
 }

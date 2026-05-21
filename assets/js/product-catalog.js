@@ -128,5 +128,67 @@ window.KAPTAINBITES_PRODUCTS = [
       "hot",
       "snack"
     ]
+  },
+  {
+    id: "fard-dates",
+    slug: "fard-dates",
+    pageUrl: "products/fard-dates.html",
+    line: "Premium Dates",
+    name: "Fard Dates",
+    price: 60,
+    originalPrice: 75,
+    weight: "60 gm",
+    badge: "New",
+    badgeClass: "bestseller",
+    theme: "dates",
+    image: "assets/images/products/fard-dates/primary.jpg",
+    thumb: "assets/images/products/fard-dates/thumb.jpg",
+    alt: "Fard Dates pack by KaptainBites",
+    description: "Premium Fard dates, naturally sweet with a rich caramel-like flavour and melt-in-mouth texture.",
+    notes: [
+      "Naturally sweet with no added sugar",
+      "Rich in fibre and essential minerals",
+      "Perfect for healthy snacking or gifting"
+    ],
+    searchTerms: [
+      "dates",
+      "fard",
+      "sweet",
+      "dry fruit",
+      "natural",
+      "healthy",
+      "gift"
+    ]
+  },
+  {
+    id: "roasted-pepper-cashew",
+    slug: "roasted-pepper-cashew",
+    pageUrl: "products/roasted-pepper-cashew.html",
+    line: "Bold Pick",
+    name: "Roasted Pepper Cashew",
+    price: 60,
+    originalPrice: 75,
+    weight: "60 gm",
+    badge: "New",
+    badgeClass: "bestseller",
+    theme: "pepper",
+    image: "assets/images/products/roasted-pepper-cashew/primary.jpg",
+    thumb: "assets/images/products/roasted-pepper-cashew/thumb.jpg",
+    alt: "Roasted Pepper Cashew pack by KaptainBites",
+    description: "Crunchy cashews coated in bold black pepper seasoning for a sharp, fiery roasted bite.",
+    notes: [
+      "Bold black pepper coating",
+      "Crunchy premium cashews",
+      "A sharp kick for spice lovers"
+    ],
+    searchTerms: [
+      "pepper",
+      "black pepper",
+      "cashew",
+      "spicy",
+      "roasted",
+      "bold",
+      "snack"
+    ]
   }
 ];

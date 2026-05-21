@@ -119,7 +119,7 @@ body.mobile-sheet-open { overflow: hidden; }
 /* ==============================
    PRODUCTS
    ============================== */
-.products-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 28px; align-items: stretch; }
+.products-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; align-items: stretch; }
 .product-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: var(--transition); border: 1px solid rgba(26,39,68,0.06); position: relative; display: flex; flex-direction: column; height: 100%; }
 .product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: rgba(201,165,78,0.2); }
 .product-img-wrap { position: relative; overflow: hidden; background: linear-gradient(135deg,var(--off-white),var(--blue-pale)); aspect-ratio: 1; display: flex; align-items: center; justify-content: center; padding: 0; }
