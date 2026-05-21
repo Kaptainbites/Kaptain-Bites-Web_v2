@@ -338,27 +338,27 @@ function setupMobileNavigation() {
 
   // ── Swipe-down-to-close for both sheets ──
   function setupSheetDrag(sheet, closeFn) {
-    const handle = sheet.querySelector("[class$='__handle']");
-    if (!handle) { return; }
+    const inner = sheet.querySelector("[class$='__inner']") || sheet;
     let startY = 0;
     let lastY = 0;
     let dragging = false;
 
-    handle.addEventListener("touchstart", (e) => {
+    inner.addEventListener("touchstart", (e) => {
       startY = e.touches[0].clientY;
       lastY = startY;
-      dragging = true;
-      sheet.style.transition = "none";
+      // Only allow drag-to-close when scrollable content is at the top
+      dragging = inner.scrollTop === 0;
+      if (dragging) { sheet.style.transition = "none"; }
     }, { passive: true });
 
-    handle.addEventListener("touchmove", (e) => {
+    inner.addEventListener("touchmove", (e) => {
       if (!dragging) { return; }
       lastY = e.touches[0].clientY;
       const dy = lastY - startY;
       if (dy > 0) { sheet.style.transform = `translateY(${dy}px)`; }
     }, { passive: true });
 
-    handle.addEventListener("touchend", () => {
+    inner.addEventListener("touchend", () => {
       if (!dragging) { return; }
       dragging = false;
       sheet.style.transition = "";
@@ -889,6 +889,26 @@ function initFadeAnimations() {
   fadeItems.forEach((item) => observer.observe(item));
 }
 
+function initFooterAccordion() {
+  if (window.innerWidth > 768) return;
+  const sections = document.querySelectorAll(".footer-grid > div:not(.footer-brand)");
+  sections.forEach((section) => {
+    const h4 = section.querySelector("h4");
+    const list = section.querySelector("ul");
+    if (!h4 || !list) return;
+    section.classList.add("footer-acc-section");
+    const chev = document.createElement("span");
+    chev.className = "footer-chev";
+    chev.setAttribute("aria-hidden", "true");
+    h4.appendChild(chev);
+    h4.addEventListener("click", () => {
+      const isOpen = section.classList.contains("footer-acc--open");
+      sections.forEach((s) => s.classList.remove("footer-acc--open"));
+      if (!isOpen) section.classList.add("footer-acc--open");
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   setupMobileNavigation();
   setupMobileSearch();
@@ -898,6 +918,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupGlobalActions();
   setupContactForm();
   initFadeAnimations();
+  initFooterAccordion();
 });
 
 window.quickWhatsApp = quickWhatsApp;

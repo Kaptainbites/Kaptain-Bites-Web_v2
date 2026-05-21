@@ -583,26 +583,26 @@ function renderProductDetail() {
           <span>No Preservatives</span>
           <span>Premium Roasted Nuts</span>
         </div>
-        <div class="product-detail__price">
-          <strong>Rs.${product.price}</strong>
-          <span>/ pack</span>
-          ${product.originalPrice ? `<s>Rs.${product.originalPrice}</s>` : ""}
-        </div>
-        <p class="product-detail__description">${product.description}</p>
-        <ul class="product-detail__notes">
-          ${product.notes.map((note) => `<li>${note}</li>`).join("")}
-        </ul>
-        <div class="product-detail__order">
+        <div class="product-detail__price-row">
+          <div class="product-detail__price">
+            <strong>Rs.${product.price}</strong>
+            <span>/ pack</span>
+            ${product.originalPrice ? `<s>Rs.${product.originalPrice}</s>` : ""}
+          </div>
           <div class="quantity-control quantity-control--detail" aria-label="Select quantity for ${product.name}">
             <button type="button" class="qty-btn" data-action="decrease">-</button>
             <span class="qty-value" data-qty>1</span>
             <button type="button" class="qty-btn" data-action="increase">+</button>
           </div>
-          <div class="product-detail__order-actions">
-            <button type="button" class="btn-secondary" data-product-cart>Add to Cart</button>
-            <button type="button" class="btn-primary" data-product-order>Order on WhatsApp</button>
-          </div>
         </div>
+        <div class="product-detail__order-actions">
+          <button type="button" class="btn-secondary" data-product-cart>Add to Cart</button>
+          <button type="button" class="btn-primary" data-product-order>Order on WhatsApp</button>
+        </div>
+        <p class="product-detail__description">${product.description}</p>
+        <ul class="product-detail__notes">
+          ${product.notes.map((note) => `<li>${note}</li>`).join("")}
+        </ul>
         <a class="product-detail__back" href="${PRODUCT_LISTING_URL}">Back to Shop</a>
       </div>
     </article>
