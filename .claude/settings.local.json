@@ -8,7 +8,23 @@
       "Bash(perl -0777 -i -pe ':*)",
       "Bash(perl -0777 -i -pe 's|\\(10\\\\.1Z\">\\\\</path>\\)\\\\n          \\\\</a>\\\\n          \\\\<a href=\"https://www\\\\.instagram\\\\.com/|$1\\\\n            \\\\<\\\\/svg>\\\\n          \\\\<\\\\/a>\\\\n          \\\\<a href=\"https:\\\\/\\\\/www.instagram.com\\\\/|g' *.html products/*.html)",
       "PowerShell(ffmpeg -version 2>&1)",
-      "PowerShell(Get-ChildItem \"D:\\\\Others\\\\Kaptain Bites\\\\website\\\\Final Showdown\\\\Kaptain-Bites-Web_v2\\\\assets\\\\images\\\\hero\" | Select-Object Name, @{N='Size \\(MB\\)';E={[math]::Round\\($_.Length/1MB,2\\)}})"
+      "PowerShell(Get-ChildItem \"D:\\\\Others\\\\Kaptain Bites\\\\website\\\\Final Showdown\\\\Kaptain-Bites-Web_v2\\\\assets\\\\images\\\\hero\" | Select-Object Name, @{N='Size \\(MB\\)';E={[math]::Round\\($_.Length/1MB,2\\)}})",
+      "Bash(ls -la \"/Users/srujan/Desktop/PIXORA24/Client projects/Kaptain Bites/Products\" 2>&1)",
+      "Bash(sips -g pixelWidth -g pixelHeight -g format assets/images/products/fard-dates/primary.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight -g hasAlpha assets/images/products/fard-dates/primary.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight -g format -g hasAlpha \"/Users/srujan/Desktop/PIXORA24/Client projects/Kaptain Bites/Products/fard dates.png\")",
+      "Bash(perl -0777 -i -pe 's/price: 60,\\\\n\\(\\\\s*\\)originalPrice: 75,/price: 120,\\\\n${1}originalPrice: 150,/g' assets/js/product-catalog.js)",
+      "Bash(git mv *)",
+      "Bash(perl -0777 -i -pe 's/price: 120,\\\\n\\(\\\\s*\\)originalPrice: 150,/price: 160,\\\\n${1}originalPrice: 210,/g' assets/js/product-catalog.js)",
+      "Bash(perl -pi -e 's/mint-mond-cashew\\\\.html/mixture-bites.html/g; s/>MintyMond</>Mixture Bites</g' about.html cart.html contact.html index.html shop.html products/fard-dates.html products/masala-mint-roast.html products/mixture-bites.html products/roasted-pepper-cashew.html products/roasted-salted-almond-cashew.html products/spice-crew-cashew.html)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(convert -version)",
+      "Bash(pip3 install *)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3)",
+      "Bash(perl -pi -e 's{\\(assets/images/products/[a-z0-9-]+/\\(?:primary|thumb\\)\\)\\\\.jpg}{$1.png}g' assets/js/product-catalog.js)",
+      "Bash(perl -pi -e 's{\\(assets/images/products/[a-z0-9-]+/\\(?:primary|thumb\\)\\)\\\\.png}{$1.webp}g' assets/js/product-catalog.js)",
+      "Bash(git add *)"
     ]
   }
 }
